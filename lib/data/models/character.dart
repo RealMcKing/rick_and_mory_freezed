@@ -17,7 +17,7 @@ class Character with _$Character {
 class Info with _$Info {
   const factory Info({
     required int count,
-    required int page,
+    required int pages,
     String? next,
     String? prev,
   }) = _Info;
@@ -34,7 +34,7 @@ class Results with _$Results {
     required String species,
     required String gender,
     required String image,
-  }) = _Result;
+  }) = _Results;
 
   factory Results.fromJson(Map<String, dynamic> json) => _$ResultsFromJson(json);
 }

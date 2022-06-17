@@ -199,10 +199,10 @@ class _$InfoTearOff {
   const _$InfoTearOff();
 
   _Info call(
-      {required int count, required int page, String? next, String? prev}) {
+      {required int count, required int pages, String? next, String? prev}) {
     return _Info(
       count: count,
-      page: page,
+      pages: pages,
       next: next,
       prev: prev,
     );
@@ -219,7 +219,7 @@ const $Info = _$InfoTearOff();
 /// @nodoc
 mixin _$Info {
   int get count => throw _privateConstructorUsedError;
-  int get page => throw _privateConstructorUsedError;
+  int get pages => throw _privateConstructorUsedError;
   String? get next => throw _privateConstructorUsedError;
   String? get prev => throw _privateConstructorUsedError;
 
@@ -232,7 +232,7 @@ mixin _$Info {
 abstract class $InfoCopyWith<$Res> {
   factory $InfoCopyWith(Info value, $Res Function(Info) then) =
       _$InfoCopyWithImpl<$Res>;
-  $Res call({int count, int page, String? next, String? prev});
+  $Res call({int count, int pages, String? next, String? prev});
 }
 
 /// @nodoc
@@ -246,7 +246,7 @@ class _$InfoCopyWithImpl<$Res> implements $InfoCopyWith<$Res> {
   @override
   $Res call({
     Object? count = freezed,
-    Object? page = freezed,
+    Object? pages = freezed,
     Object? next = freezed,
     Object? prev = freezed,
   }) {
@@ -255,9 +255,9 @@ class _$InfoCopyWithImpl<$Res> implements $InfoCopyWith<$Res> {
           ? _value.count
           : count // ignore: cast_nullable_to_non_nullable
               as int,
-      page: page == freezed
-          ? _value.page
-          : page // ignore: cast_nullable_to_non_nullable
+      pages: pages == freezed
+          ? _value.pages
+          : pages // ignore: cast_nullable_to_non_nullable
               as int,
       next: next == freezed
           ? _value.next
@@ -276,7 +276,7 @@ abstract class _$InfoCopyWith<$Res> implements $InfoCopyWith<$Res> {
   factory _$InfoCopyWith(_Info value, $Res Function(_Info) then) =
       __$InfoCopyWithImpl<$Res>;
   @override
-  $Res call({int count, int page, String? next, String? prev});
+  $Res call({int count, int pages, String? next, String? prev});
 }
 
 /// @nodoc
@@ -291,7 +291,7 @@ class __$InfoCopyWithImpl<$Res> extends _$InfoCopyWithImpl<$Res>
   @override
   $Res call({
     Object? count = freezed,
-    Object? page = freezed,
+    Object? pages = freezed,
     Object? next = freezed,
     Object? prev = freezed,
   }) {
@@ -300,9 +300,9 @@ class __$InfoCopyWithImpl<$Res> extends _$InfoCopyWithImpl<$Res>
           ? _value.count
           : count // ignore: cast_nullable_to_non_nullable
               as int,
-      page: page == freezed
-          ? _value.page
-          : page // ignore: cast_nullable_to_non_nullable
+      pages: pages == freezed
+          ? _value.pages
+          : pages // ignore: cast_nullable_to_non_nullable
               as int,
       next: next == freezed
           ? _value.next
@@ -320,14 +320,14 @@ class __$InfoCopyWithImpl<$Res> extends _$InfoCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Info implements _Info {
   const _$_Info(
-      {required this.count, required this.page, this.next, this.prev});
+      {required this.count, required this.pages, this.next, this.prev});
 
   factory _$_Info.fromJson(Map<String, dynamic> json) => _$$_InfoFromJson(json);
 
   @override
   final int count;
   @override
-  final int page;
+  final int pages;
   @override
   final String? next;
   @override
@@ -335,7 +335,7 @@ class _$_Info implements _Info {
 
   @override
   String toString() {
-    return 'Info(count: $count, page: $page, next: $next, prev: $prev)';
+    return 'Info(count: $count, pages: $pages, next: $next, prev: $prev)';
   }
 
   @override
@@ -344,7 +344,7 @@ class _$_Info implements _Info {
         (other.runtimeType == runtimeType &&
             other is _Info &&
             const DeepCollectionEquality().equals(other.count, count) &&
-            const DeepCollectionEquality().equals(other.page, page) &&
+            const DeepCollectionEquality().equals(other.pages, pages) &&
             const DeepCollectionEquality().equals(other.next, next) &&
             const DeepCollectionEquality().equals(other.prev, prev));
   }
@@ -353,7 +353,7 @@ class _$_Info implements _Info {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(count),
-      const DeepCollectionEquality().hash(page),
+      const DeepCollectionEquality().hash(pages),
       const DeepCollectionEquality().hash(next),
       const DeepCollectionEquality().hash(prev));
 
@@ -371,7 +371,7 @@ class _$_Info implements _Info {
 abstract class _Info implements Info {
   const factory _Info(
       {required int count,
-      required int page,
+      required int pages,
       String? next,
       String? prev}) = _$_Info;
 
@@ -380,7 +380,7 @@ abstract class _Info implements Info {
   @override
   int get count;
   @override
-  int get page;
+  int get pages;
   @override
   String? get next;
   @override
@@ -391,21 +391,21 @@ abstract class _Info implements Info {
 }
 
 Results _$ResultsFromJson(Map<String, dynamic> json) {
-  return _Result.fromJson(json);
+  return _Results.fromJson(json);
 }
 
 /// @nodoc
 class _$ResultsTearOff {
   const _$ResultsTearOff();
 
-  _Result call(
+  _Results call(
       {required int id,
       required String name,
       required String status,
       required String species,
       required String gender,
       required String image}) {
-    return _Result(
+    return _Results(
       id: id,
       name: name,
       status: status,
@@ -497,9 +497,9 @@ class _$ResultsCopyWithImpl<$Res> implements $ResultsCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$ResultCopyWith<$Res> implements $ResultsCopyWith<$Res> {
-  factory _$ResultCopyWith(_Result value, $Res Function(_Result) then) =
-      __$ResultCopyWithImpl<$Res>;
+abstract class _$ResultsCopyWith<$Res> implements $ResultsCopyWith<$Res> {
+  factory _$ResultsCopyWith(_Results value, $Res Function(_Results) then) =
+      __$ResultsCopyWithImpl<$Res>;
   @override
   $Res call(
       {int id,
@@ -511,13 +511,13 @@ abstract class _$ResultCopyWith<$Res> implements $ResultsCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$ResultCopyWithImpl<$Res> extends _$ResultsCopyWithImpl<$Res>
-    implements _$ResultCopyWith<$Res> {
-  __$ResultCopyWithImpl(_Result _value, $Res Function(_Result) _then)
-      : super(_value, (v) => _then(v as _Result));
+class __$ResultsCopyWithImpl<$Res> extends _$ResultsCopyWithImpl<$Res>
+    implements _$ResultsCopyWith<$Res> {
+  __$ResultsCopyWithImpl(_Results _value, $Res Function(_Results) _then)
+      : super(_value, (v) => _then(v as _Results));
 
   @override
-  _Result get _value => super._value as _Result;
+  _Results get _value => super._value as _Results;
 
   @override
   $Res call({
@@ -528,7 +528,7 @@ class __$ResultCopyWithImpl<$Res> extends _$ResultsCopyWithImpl<$Res>
     Object? gender = freezed,
     Object? image = freezed,
   }) {
-    return _then(_Result(
+    return _then(_Results(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -559,8 +559,8 @@ class __$ResultCopyWithImpl<$Res> extends _$ResultsCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Result implements _Result {
-  const _$_Result(
+class _$_Results implements _Results {
+  const _$_Results(
       {required this.id,
       required this.name,
       required this.status,
@@ -568,8 +568,8 @@ class _$_Result implements _Result {
       required this.gender,
       required this.image});
 
-  factory _$_Result.fromJson(Map<String, dynamic> json) =>
-      _$$_ResultFromJson(json);
+  factory _$_Results.fromJson(Map<String, dynamic> json) =>
+      _$$_ResultsFromJson(json);
 
   @override
   final int id;
@@ -593,7 +593,7 @@ class _$_Result implements _Result {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Result &&
+            other is _Results &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality().equals(other.status, status) &&
@@ -614,25 +614,25 @@ class _$_Result implements _Result {
 
   @JsonKey(ignore: true)
   @override
-  _$ResultCopyWith<_Result> get copyWith =>
-      __$ResultCopyWithImpl<_Result>(this, _$identity);
+  _$ResultsCopyWith<_Results> get copyWith =>
+      __$ResultsCopyWithImpl<_Results>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ResultToJson(this);
+    return _$$_ResultsToJson(this);
   }
 }
 
-abstract class _Result implements Results {
-  const factory _Result(
+abstract class _Results implements Results {
+  const factory _Results(
       {required int id,
       required String name,
       required String status,
       required String species,
       required String gender,
-      required String image}) = _$_Result;
+      required String image}) = _$_Results;
 
-  factory _Result.fromJson(Map<String, dynamic> json) = _$_Result.fromJson;
+  factory _Results.fromJson(Map<String, dynamic> json) = _$_Results.fromJson;
 
   @override
   int get id;
@@ -648,5 +648,6 @@ abstract class _Result implements Results {
   String get image;
   @override
   @JsonKey(ignore: true)
-  _$ResultCopyWith<_Result> get copyWith => throw _privateConstructorUsedError;
+  _$ResultsCopyWith<_Results> get copyWith =>
+      throw _privateConstructorUsedError;
 }
