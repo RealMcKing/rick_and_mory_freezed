@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:rick_and_mory_freezed/bloc/character_bloc.dart';
 import 'package:rick_and_mory_freezed/ui/widgets/custom_list_tile.dart';
 
 import '../../data/models/character.dart';
+import 'dart:async';
 
 class SearchPage extends StatefulWidget {
   const SearchPage({Key? key}) : super(key: key);
@@ -18,17 +20,23 @@ class _SearchPageState extends State<SearchPage> {
   List<Results> _currentResults = [];
   int _currentPage = 1;
   String _currentSearchStr = '';
+  final _storage = HydratedBlocOverrides.current?.storage;
 
   final refreshController = RefreshController();
   bool _isPagination = false;
 
+  Timer? searchDebounts;
+
   @override
   void initState() {
-    if (_currentResults.isEmpty) {
-      context
-          .read<CharacterBloc>()
-          .add(const CharacterEvent.fetch(name: '', page: 1));
+    if (_storage.runtimeType.toString().isEmpty) {
+      if (_currentResults.isEmpty) {
+        context
+            .read<CharacterBloc>()
+            .add(const CharacterEvent.fetch(name: '', page: 1));
+      }
     }
+
     super.initState();
   }
 
@@ -61,9 +69,12 @@ class _SearchPageState extends State<SearchPage> {
               _currentResults = [];
               _currentSearchStr = value;
 
-              context
-                  .read<CharacterBloc>()
-                  .add(CharacterEvent.fetch(name: value, page: _currentPage));
+              searchDebounts?.cancel();
+              searchDebounts = Timer(const Duration(milliseconds: 500), () {
+                context
+                    .read<CharacterBloc>()
+                    .add(CharacterEvent.fetch(name: value, page: _currentPage));
+              });
             },
           ),
         ),
