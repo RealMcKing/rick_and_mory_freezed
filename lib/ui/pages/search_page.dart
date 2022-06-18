@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:http/http.dart';
 import 'package:rick_and_mory_freezed/bloc/character_bloc.dart';
+import 'package:rick_and_mory_freezed/ui/widgets/custom_list_tile.dart';
 
 import '../../data/models/character.dart';
 
@@ -96,14 +97,11 @@ class _SearchPageState extends State<SearchPage> {
       itemBuilder: (context, index) {
         final result = currentResults[index];
         return Padding(
-          padding: const EdgeInsets.only(right: 16, left: 16, top: 3, bottom: 3),
-          child: ListTile(
-            title: Text(
-              result.name,
-              style: const TextStyle(color: Colors.white),
-            ),
-          ),
-        );
+            padding:
+                const EdgeInsets.only(right: 16, left: 16, top: 3, bottom: 3),
+            child: CustomListTile(
+              result: result,
+            ));
       },
       separatorBuilder: (_, index) => SizedBox(
         height: 5,
